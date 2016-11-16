@@ -1,4 +1,4 @@
-# SharpedJS
+# SharpenedJS
 A library that adds C# like syntax/functions to Javascript.
 
 
