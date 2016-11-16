@@ -1,10 +1,10 @@
-/* SharpJS 
+/* SharpenedJS 
  * Copyright Kelvin K. - https://github.com/LogicReinc
  * Licensed under LGPL license.
  */
 
 
-var Linq = function(array) {
+var LinqLike = function(array) {
     var me = this;
     var Source = array;
     if (Source == undefined)
@@ -24,7 +24,7 @@ var Linq = function(array) {
     /*LINQ*/
     me.Where = function(condition) {
         var newArray = Source.filter(condition);
-        return new Frame.LINQLike(newArray);
+        return new LinqLike(newArray);
     };
     /*LINQ*/
     me.OrderBy = function(selector) {
@@ -39,7 +39,7 @@ var Linq = function(array) {
                 return -1;
             return 0;
         });
-        return new Frame.LINQLike(newArray);
+        return new LinqLike(newArray);
     };
     /*LINQ*/
     me.OrderByDescending = function(selector) {
@@ -54,7 +54,7 @@ var Linq = function(array) {
                 return 1;
             return 0;
         });
-        return new Frame.LINQLike(newArray);
+        return new LinqLike(newArray);
     };
 
     //Items Result
@@ -90,5 +90,7 @@ var Linq = function(array) {
 }
 
 
-exports.Linq = Linq;
-global.Linq = Linq;
+exports.Linq = LinqLike;
+global.Linq = function(array){
+	return new LinqLike(array);
+};
